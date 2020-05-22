@@ -22,7 +22,6 @@ body {
 .sidebar-logo {
     padding: 10px 15px 10px 30px;
     font-size: 20px;
-    background-color: #fff;
 }
 
 .sidebar-navigation {
@@ -57,7 +56,7 @@ body {
 }
 
 .sidebar-navigation li::before {
-    background-color: #2574A9;
+    /* background-color: #2574A9; */
     position: absolute;
     content: '';
     height: 100%;
@@ -79,4 +78,11 @@ body {
 
 .content-container {
     padding-left: 220px;
+}
+
+@media(max-width:1199px)
+{
+    .navlink {
+        display: none;
+    }
 }
