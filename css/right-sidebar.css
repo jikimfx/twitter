@@ -8,14 +8,14 @@
     padding-left: 40px;
     background-color: rgb(225 232 237);
     border-radius: 20em;
-    width: 20%;
+   
     border-style: none;
 }
 
 #input_img {position: absolute;
     bottom: 12px;
     left: 20px;
-    width: 15px;
+  
     height: 15px; }
 
 ::placeholder { 
@@ -29,20 +29,21 @@
    
    
   }
+
 #right-container{
+   
     border-radius: 20em;
     background-color: rgb(225 232 237);
-    width: 20%;
     height: 60%;
    font-size: 20px;
    margin-left: 3px;
-   padding-left: 4px;
+   padding-left: 47px;
    border-style: none;
    margin: 0;
 }
 #groupitem{
     border-radius: 20em;
-    width: 20%;
+
     height: 60%;
    font-size: 20px;
    margin-left: 3px;
@@ -51,42 +52,54 @@
    margin: 0;
   
 }
-.showmoreBtn{
+.showmoreBtn {
     border-radius: 20em;
-    width: 7%;
-    height: 60%;
-   font-size: 15px;
-   margin-left: 3px;
-   padding-left: 4px;
-   border-style: none;
-   margin: 0;
-   background-color:rgb(225 232 237) ;
-   color: rgb(29 161 242);
-   margin-top: 20px;
-   
-
-
+    outline: none;
+    margin-left: 4px;
+    padding-bottom: 20px;
+    margin-top: 20px;
 }
-ul.list-group li{
+ul.list-group-flush li{
     list-style: none;
-    width: 20%;
-    border-style: ridge;
-    background-color: rgb(170 184 194);
+   
+    border-style: solid red;
+    background-color: rgb(245 248 250);
+    border-radius: 30em;
    
     
    
    
 
    
-    background-color: rgb(225 232 237);
+    /* background-color: rgb(225 232 237); */
 }
 .Minh-rightsection{
     padding-left: 50px;
     padding-top: 50px;
     height: 80%;
     border-radius: 15em;
+    padding-bottom: 30px;
 }
 .group-container{
    
     background-color: red;
 }
+.col-4{
+    padding-left: 60px;
+}
+
+.footer{
+    word-wrap: none;
+    margin-left:50px;
+  
+}
+.footer-widget-content{
+    display:table;
+    margin:0 auto;
+    outline: none;  
+    list-style: none;  
+}
+.footer-widget-content>.li{
+    display: inline; 
+}
+
