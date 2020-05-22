@@ -21,7 +21,7 @@ body {
 
 .sidebar-logo {
     padding: 10px 15px 10px 30px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .sidebar-navigation {
@@ -36,7 +36,7 @@ body {
     position: relative;
     display: inline-block;
     width: 100%;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .sidebar-navigation li a {
@@ -52,11 +52,11 @@ body {
 .sidebar-navigation li a:active, .sidebar-navigation li a:hover, .sidebar-navigation li a:focus {
     text-decoration: none;
     outline: none;
-    color: #fff;
+    color: #42b0f4;
 }
 
 .sidebar-navigation li::before {
-    background-color: #2574A9;
+    background-color: #e8f5fe;
     position: absolute;
     content: '';
     height: 100%;
