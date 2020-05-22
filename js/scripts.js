@@ -42,6 +42,8 @@ const postTweet = () => {
         id: num,
         tag: hashtag
     }
+    retweetList[num] = [];
+    console.log(retweetList);
     tweetList.push(tweet);
     document.getElementById("tweetArea").value = null;
     document.getElementById("remain").innerHTML = null;
@@ -68,7 +70,6 @@ const like = (idUser) => {
 }
 
 const tagFilter = (idTag) => {
-    console.log(typeof(idTag));
     let tagPost = tweetList.filter(item => {
         let index = item.tag.findIndex(i => i == idTag);
         return (index > -1);
