@@ -12,7 +12,7 @@ body {
 .border-modified {
     border-color: #E1E8ED;
     border-style: solid;
-    border-width: 0px 2px 2px 2px;
+    border-width: 0px 1px 2px 1px;
 }
 
 .btn-tweet {
@@ -42,4 +42,28 @@ body {
     line-height: 30px;
     color: black;
     background-color: #1DA1F2;
+}
+
+#tweetArea {
+    display: block; 
+    box-sizing: border-box; 
+    width: calc(100% - 15px); 
+    min-height: 100px;
+}
+
+.features {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.comment, .retweet, .like, .share, .analytic, .trash {
+    cursor: pointer;
+}
+
+#tweetContent {
+    display: block; 
+    box-sizing: border-box; 
+    width: calc(100% - 15px); 
+    min-height: 100px;
 }
