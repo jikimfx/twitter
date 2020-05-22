@@ -1,89 +1,45 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
-    background-color: #FFF;
-    font-family: Raleway, Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
 }
 
-.sidebar-container {
-    position: fixed;
-    width: 220px;
-    height: 100%;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: #1a1a1a;
-    color: #000;
+.container {
+    font-family: 'Raleway', sans-serif;
+    width: 40%;
+    min-width: 500px;
 }
 
-.content-container {
-    padding-top: 20px;
+.border-modified {
+    border-color: #E1E8ED;
+    border-style: solid;
+    border-width: 0px 2px 2px 2px;
 }
 
-.sidebar-logo {
-    padding: 10px 15px 10px 30px;
-    font-size: 18px;
-    color: #1da1f2;
-}
-
-.sidebar-navigation {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    position: relative;
-}
-
-.sidebar-navigation li {
-    background-color: transparent;
-    position: relative;
+.btn-tweet {
     display: inline-block;
-    width: 100%;
-    font-size: 20px;
-    font-weight: 700;
+    margin-right: 15px;
+    width: 80px;
+    padding: 0 auto;
 }
 
-.sidebar-navigation li a {
-    padding: 10px 15px 20px 30px;
-    display: block;
-    color: #000;
+.tweet {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.sidebar-navigation li .fa {
-    margin-right: 10px;
+#loadingBar {
+    width: 100px;
+    margin-right: 15px;
+    background-color: white;
+    border: 1px solid black;
 }
 
-.sidebar-navigation li a:active, .sidebar-navigation li a:hover, .sidebar-navigation li a:focus {
-    text-decoration: none;
-    outline: none;
-    color: #42b0f4;
-}
-
-.sidebar-navigation li::before {
-    background-color: #e8f5fe;
-    position: absolute;
-    content: '';
-    height: 100%;
-    left: 0;
-    top: 0;
-    -webkit-transition: width 0.2s ease-in;
-    transition: width 0.2s ease-in;
-    z-index: -1;
-}
-
-.sidebar-navigation li:hover::before {
-    width: 100%;
-}
-
-.sidebar-navigation .header::before {
-    background-color: transparent;
-}
-
-.content-container {
-    padding-left: 220px;
-}
-
-@media(max-width:1199px)
-{
-    .navlink {
-        display: none;
-    }
+#remain {
+    height: 30px;
+    width: 0%;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+    background-color: #1DA1F2;
 }
