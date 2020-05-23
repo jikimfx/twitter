@@ -141,3 +141,6 @@ ul.list-group-flush li {
 .dropdown-menu show{
 list-style: none;
 }
+#news{
+    font-size: 15px;
+}
