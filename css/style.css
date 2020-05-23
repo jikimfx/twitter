@@ -76,9 +76,10 @@ body {
 }
 
 .sidebar-logo {
-    padding: 10px 15px 10px 30px;
-    font-size: 18px;
-    color: #1da1f2;
+    /* padding: 10px 15px 10px 30px; */
+    width: 100%
+    /* font-size: 18px;
+    color: #1da1f2; */
 }
 
 .sidebar-navigation {
