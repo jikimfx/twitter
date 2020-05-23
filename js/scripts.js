@@ -89,7 +89,7 @@ const tagFilter = (idTag) => {
     render(tagPost);
 }
 
-let formatTweet = (item) => {
+let formatTweet = (item, addAuthor) => {
     let icon = `<i class="far fa-heart fa-lg"></i>`
         if (item.like) {
             icon = `<i class="fas fa-heart fa-lg"></i>`
@@ -99,6 +99,10 @@ let formatTweet = (item) => {
                 return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
             } else return(i);
         }).join(" ");
+        let retweetFrom = "";
+        if (addAuthor != "") {
+            retweetFrom = `Retweet from ${addAuthor}`;
+        };
         let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
         <div class="col-auto">
             <img class="rounded-circle" src="img/user-default.png" style="width: 50px;">
@@ -106,10 +110,10 @@ let formatTweet = (item) => {
         <div class="col">
             <div class="row" style="flex-direction: column; margin-bottom: 10px;">
                 <h5 style="margin-bottom: 0px;">${item.name}</h5>
-                <a href="#" id="currentUser">${item.username}</a>
+                <a href="#" id="${item.username}">${item.username}</a>
             </div>
             <div class="row" style="margin-bottom: 10px;">
-                <p id="tweetContent">${contentTweet}</p>
+                <p id="tweetContent"> <b>${retweetFrom}</b> <br> ${contentTweet}</p>
             </div>
             <div class="row features">
                 <span class="comment" id="${item.id}"><i class="far fa-comment fa-lg"></i></span>
@@ -127,9 +131,9 @@ let formatTweet = (item) => {
 const render = (list) => {
     let allTweet = list.map((item) => {
         let retweetContent = retweetList[item.id].map(retweet => {
-            return formatTweet(retweet);
+            return formatTweet(retweet, item.username);
         }).join("");
-        let mainTweet = formatTweet(item);
+        let mainTweet = formatTweet(item, "");
         return(mainTweet + retweetContent);
     }).join("");
     document.getElementById("contentTweet").innerHTML = allTweet;
