@@ -4,6 +4,62 @@ body {
     font-family: Raleway, Helvetica, Arial, sans-serif;
 }
 
+.modal-header .close {
+    font-size: 40px;
+}
+
+.btn-tweet {
+    background-color: #1da1f2;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.btn-tweet:hover {
+    background-color: #00B6F1;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.btn-tweet-sm {
+    background-color: #1da1f2;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.btn-tweet-sm:hover {
+    background-color: #00B6F1;
+    color: #FFF;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+
+.btn-round-lg {
+    border-radius: 22.5px;
+}
+
+.btn-round {
+    border-radius: 17px;
+}
+
+.btn-round-sm {
+    border-radius: 15px;
+}
+
+.btn-round-xs {
+    border-radius: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tweet-modal-icons {
+    font-size: 22px;
+    color: #1da1f2;
+}
+
 .sidebar-container {
     position: fixed;
     width: 220px;
@@ -81,8 +137,7 @@ body {
     padding-left: 220px;
 }
 
-@media(max-width:1199px)
-{
+@media(max-width:1199px) {
     .navlink {
         display: none;
     }

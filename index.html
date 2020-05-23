@@ -24,17 +24,47 @@
                     <li><a href="#"><i class="fa fa-slack"></i><span class="navlink ml-5">Explore</span></a></li>
                     <li><a href="#"><i class="fa fa-bell-o"></i><span class="navlink ml-5">Notifications</span></a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i><span class="navlink ml-5">Messages</span></a></li>
-                    <li><a href="#"><i class="fa fa-bookmark-o"></i><span class="navlink ml-5"> Bookmarks</span></a></li>
+                    <li><a href="#"><i class="fa fa-bookmark-o"></i><span class="navlink ml-5"> Bookmarks</span></a>
+                    </li>
                     <li><a href="#"><i class="fa fa-list-alt"></i><span class="navlink ml-5">Lists</span></a></li>
                     <li><a href="#"><i class="fa fa-user-o"></i><span class="navlink ml-5">Profile</span></a></li>
                     <li><a href="#"><i class="fa fa-ellipsis-h"></i><span class="navlink ml-5">More</span></a></li>
                 </ul>
-                <div class="sidebar-tweet">
+                <div class="sidebar-tweet mt-5">
+                    <button type="button" class="btn btn-tweet btn-round-lg btn-lg btn-block" data-toggle="modal"
+                        data-target="#tweetModalCenter">Tweet</button>
                 </div>
+                <!-- Button trigger modal -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="tweetModalCenter" tabindex="-1" role="dialog" aria-labelledby="tweetModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title" id="tweetModalCenterTitle"></div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control" id="tweetModalForm" rows="5"></textarea>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                                <div class="tweet-modal-icons">
+                                    <i class="fa fa-picture-o mr-2" aria-hidden="true"></i>
+                                    <i class="fa fa-smile-o mr-2" aria-hidden="true"></i>
+                                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <button class="btn btn-tweet-sm btn-round-sm">Tweet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </nav>
             <main class="col-5">
-                <div>
-                    Hello
+                <div class="main-container">
                 </div>
             </main>
             <right class="col-4">
