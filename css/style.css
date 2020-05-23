@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;800&display=swap');
 body {
     background-color: #FFF;
     font-family: Raleway, Helvetica, Arial, sans-serif;
@@ -210,3 +210,5 @@ body {
     width: calc(100% - 15px); 
     min-height: 100px;
 }
+
+

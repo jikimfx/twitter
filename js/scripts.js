@@ -122,11 +122,16 @@ const tagFilter = (idTag) => {
     render(tagPost);
 }
 
-let formatTweet = (item, addAuthor) => {
+let formatTweet = (item, addAuthor, originalTweet) => {
     let icon = `<i class="far fa-heart fa-lg"></i>`
         if (item.like) {
             icon = `<i class="fas fa-heart fa-lg"></i>`
         }
+        let orgTweet = originalTweet.map((i) => {
+            if (i[0]=="#") {
+                return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
+            } else return(i);
+        }).join(" ");
         let contentTweet = item.content.map((i) => {
             if (i[0]=="#") {
                 return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
@@ -136,7 +141,7 @@ let formatTweet = (item, addAuthor) => {
         let retweetButton = `<span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>`;
         if (addAuthor != "") {
             retweetButton = "";
-            retweetFrom = `Retweet from ${addAuthor}`;
+            retweetFrom = `Retweet from <a href="#" id="${addAuthor}">${addAuthor}</a>`;
         };
         let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
         <div class="col-auto">
@@ -148,7 +153,7 @@ let formatTweet = (item, addAuthor) => {
                 <a href="#" id="${item.username}">${item.username}</a>
             </div>
             <div class="row" style="margin-bottom: 10px;">
-                <p id="tweetContent"> <b>${retweetFrom}</b> <br> ${contentTweet}</p>
+                <p id="tweetContent"> ${contentTweet} <br><br> <b style="font-weight: 800;">${retweetFrom}</b> <br> ${orgTweet} </p>
             </div>
             <div class="row features">
                 <span class="comment" id="${item.id}"><i class="far fa-comment fa-lg"></i></span>
@@ -166,9 +171,9 @@ let formatTweet = (item, addAuthor) => {
 const render = (list) => {
     let allTweet = list.map((item) => {
         let retweetContent = retweetList[item.id].map(retweet => {
-            return formatTweet(retweet, item.username);
+            return formatTweet(retweet, item.username, item.content);
         }).join("");
-        let mainTweet = formatTweet(item, "");
+        let mainTweet = formatTweet(item, "", []);
         return(mainTweet + retweetContent);
     }).join("");
     document.getElementById("contentTweet").innerHTML = allTweet;
