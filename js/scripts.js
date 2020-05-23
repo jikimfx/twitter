@@ -7,6 +7,23 @@ let currentUsername = "Home";
 let tweetList = [];
 let retweetList = {};
 
+const saveStorage = () => {
+    localStorage.setItem("tweetList", JSON.stringify(tweetList));
+    localStorage.setItem("retweetList", JSON.stringify(retweetList));
+}
+
+const getStorage = () => {
+    let storeTweet = localStorage.getItem("tweetList");
+    let storeRetweet = localStorage.getItem("retweetList");
+    if (storeTweet !== null) {
+        tweetList = JSON.parse(storeTweet);
+        console.log(tweetList);
+    }
+    if (storeRetweet !== null) {
+        retweetList = JSON.parse(storeRetweet);
+        console.log(retweetList);
+    }
+}
 
 const remainLetter = () => {
     let lengthTweet = tweetArea.value.length;
@@ -68,16 +85,32 @@ const retweet = (idUser) => {
 
 const delTweet = (idUser) => {
     idUser = Number(idUser);
-    let originalIndex = tweetList.findIndex((item) => (item.id == idUser))
-    console.log(originalIndex);
-    tweetList.splice(originalIndex, 1);
+    let originalIndex = tweetList.findIndex((item) => (item.id == idUser));
+    if (originalIndex == -1) {
+        for (let key in retweetList) {
+            originalIndex = retweetList[key].findIndex((item) => (item.id == idUser));
+            if (originalIndex > -1) {
+                retweetList[key].splice(originalIndex, 1);
+            }
+        }
+    } else {
+        tweetList.splice(originalIndex, 1);
+        delete retweetList[idUser];
+    }
     render(tweetList);
 }
 
 const like = (idUser) => {
     idUser = Number(idUser);
     let original = tweetList.find((item) => (item.id == idUser))
-    original.like = !(original.like);
+    if (typeof original === "undefined") {
+        for (let key in retweetList) {
+            original = retweetList[key].find((item) => (item.id == idUser));
+            if (typeof original !== "undefined") {
+                original.like = !(original.like);
+            }
+        }
+    } else original.like = !(original.like);
     render(tweetList);
 }
 
@@ -100,7 +133,9 @@ let formatTweet = (item, addAuthor) => {
             } else return(i);
         }).join(" ");
         let retweetFrom = "";
+        let retweetButton = `<span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>`;
         if (addAuthor != "") {
+            retweetButton = "";
             retweetFrom = `Retweet from ${addAuthor}`;
         };
         let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
@@ -117,7 +152,7 @@ let formatTweet = (item, addAuthor) => {
             </div>
             <div class="row features">
                 <span class="comment" id="${item.id}"><i class="far fa-comment fa-lg"></i></span>
-                <span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>
+                ${retweetButton}
                 <span class="like" id="${item.id}" onclick="like(id)">${icon}</span>
                 <span class="share" id="${item.id}"><i class="far fa-share-square fa-lg"></i></i></span>
                 <span class="analytic" id="${item.id}"><i class="fas fa-chart-bar fa-lg"></i></span>
@@ -137,6 +172,7 @@ const render = (list) => {
         return(mainTweet + retweetContent);
     }).join("");
     document.getElementById("contentTweet").innerHTML = allTweet;
+    saveStorage();
 }
 
 tweetArea.addEventListener("input", remainLetter);
