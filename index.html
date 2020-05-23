@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;800&display=swap" rel="stylesheet">
+    <title>Coderschool Twitter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/eacaad73d5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/fwitter-icon.png" />
 </head>
 <body>
     <div class="container">
@@ -25,6 +27,57 @@
                 </div>
                 <div class="row" style="margin-bottom: 15px;">
                     <textarea id="tweetArea" placeholder="Remember, be nice!" contenteditable="true"></textarea>
+    <div class="container p-3">
+        <div class="row">
+            <nav id="sidebar" class="col-3">
+                <div id="logo">
+                    <!-- <i class="fa fa-twitter fa-2x" aria-hidden="true"></i> -->
+                    <img class="sidebar-logo" src="img/fwitter-logo.png" />
+                </div>
+                <ul class="sidebar-navigation mt-5">
+                    <li><a href="#"><i class="fa fa-home"></i><span class="navlink ml-5">Home</span></a></li>
+                    <li><a href="#"><i class="fa fa-slack"></i><span class="navlink ml-5">Explore</span></a></li>
+                    <li><a href="#"><i class="fa fa-bell-o"></i><span class="navlink ml-5">Notifications</span></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="navlink ml-5">Messages</span></a></li>
+                    <li><a href="#"><i class="fa fa-bookmark-o"></i><span class="navlink ml-5"> Bookmarks</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-list-alt"></i><span class="navlink ml-5">Lists</span></a></li>
+                    <li><a href="#"><i class="fa fa-user-o"></i><span class="navlink ml-5">Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-ellipsis-h"></i><span class="navlink ml-5">More</span></a></li>
+                </ul>
+                <div class="sidebar-tweet mt-5">
+                    <button type="button" class="btn btn-tweet btn-round-lg btn-lg btn-block" data-toggle="modal"
+                        data-target="#tweetModalCenter">Tweet</button>
+                </div>
+
+                <div class="modal fade" id="tweetModalCenter" tabindex="-1" role="dialog" aria-labelledby="tweetModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title" id="tweetModalCenterTitle"></div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control" id="tweetModalForm" rows="5"></textarea>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                                <div class="tweet-modal-icons">
+                                    <i class="fa fa-picture-o mr-2" aria-hidden="true"></i>
+                                    <i class="fa fa-smile-o mr-2" aria-hidden="true"></i>
+                                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <button class="btn btn-tweet-sm btn-round-sm">Tweet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </nav>
+            <main class="col-5">
+                <div class="main-container">
                 </div>
                 <div class="row tweet">
                     <div id="loadingBar">
