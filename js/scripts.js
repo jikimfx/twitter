@@ -32,18 +32,15 @@ const remainLetter = () => {
 
 const postTweet = () => {
     let temp = document.getElementById("tweetArea").value.split(" ");
-    let hashtag = temp.filter((item) => item[0] == "#");
-    let tweetContent = temp.filter((item) => item[0]!="#");
     let tweet = {
         name: currentUser,
         username: `@${currentUsername}`,
-        content: tweetContent.join(" "),
+        content: temp,
         like: false,
-        id: num,
-        tag: hashtag
+        id: num
     }
     retweetList[num] = [];
-    console.log(retweetList);
+    console.log("Retweet", retweetList);
     tweetList.push(tweet);
     document.getElementById("tweetArea").value = null;
     document.getElementById("remain").innerHTML = null;
@@ -51,6 +48,21 @@ const postTweet = () => {
     document.getElementById("remain").style.width = "100%";
     console.log(tweetList);
     num ++;
+    render(tweetList);
+}
+
+const retweet = (idUser) => {
+    let userComment = prompt("What's in your mind?").split(" ");
+    let tweet = {
+        name: currentUser,
+        username: `@${currentUsername}`,
+        content: userComment,
+        like: false,
+        id: num
+    }
+    num++;
+    retweetList[idUser].push(tweet);
+    console.log(retweetList);
     render(tweetList);
 }
 
@@ -71,19 +83,22 @@ const like = (idUser) => {
 
 const tagFilter = (idTag) => {
     let tagPost = tweetList.filter(item => {
-        let index = item.tag.findIndex(i => i == idTag);
+        let index = item.content.findIndex(i => i == idTag);
         return (index > -1);
     });
     render(tagPost);
 }
 
-const render = (list) => {
-    let allTweet = list.map((item) => {
-        let icon = `<i class="far fa-heart fa-lg"></i>`
+let formatTweet = (item) => {
+    let icon = `<i class="far fa-heart fa-lg"></i>`
         if (item.like) {
             icon = `<i class="fas fa-heart fa-lg"></i>`
         }
-        let tag = item.tag.map(hashtag => ` <a href="#" id="${hashtag}" onclick="tagFilter(id)">${hashtag}</a>`).join("");
+        let contentTweet = item.content.map((i) => {
+            if (i[0]=="#") {
+                return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
+            } else return(i);
+        }).join(" ");
         let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
         <div class="col-auto">
             <img class="rounded-circle" src="img/user-default.png" style="width: 50px;">
@@ -94,11 +109,11 @@ const render = (list) => {
                 <a href="#" id="currentUser">${item.username}</a>
             </div>
             <div class="row" style="margin-bottom: 10px;">
-                <p id="tweetContent">${item.content} ${tag}</p>
+                <p id="tweetContent">${contentTweet}</p>
             </div>
             <div class="row features">
                 <span class="comment" id="${item.id}"><i class="far fa-comment fa-lg"></i></span>
-                <span class="retweet" id="${item.id}"><i class="fas fa-retweet fa-lg"></i></span>
+                <span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>
                 <span class="like" id="${item.id}" onclick="like(id)">${icon}</span>
                 <span class="share" id="${item.id}"><i class="far fa-share-square fa-lg"></i></i></span>
                 <span class="analytic" id="${item.id}"><i class="fas fa-chart-bar fa-lg"></i></span>
@@ -106,7 +121,16 @@ const render = (list) => {
             </div>
         </div>
         </div>`
-        return (context);
+    return (context);
+}
+
+const render = (list) => {
+    let allTweet = list.map((item) => {
+        let retweetContent = retweetList[item.id].map(retweet => {
+            return formatTweet(retweet);
+        }).join("");
+        let mainTweet = formatTweet(item);
+        return(mainTweet + retweetContent);
     }).join("");
     document.getElementById("contentTweet").innerHTML = allTweet;
 }
