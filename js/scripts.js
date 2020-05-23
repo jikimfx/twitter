@@ -1,5 +1,6 @@
-const MAX_LETTER = 140;
-let tweetArea = document.getElementById("tweetArea");
+const MAX_LETTER = 10;
+let tweetArea = document.getElementById("tweetArea"); // two places to tweet from, but ids have to be unique
+let tweetAreaModal = document.getElementById("tweetAreaModal"); // two places to tweet from, but ids have to be unique
 let num = 0;
 let empty = true;
 let currentUser = "Anonymous";
@@ -25,7 +26,7 @@ const getStorage = () => {
     }
 }
 
-const remainLetter = () => {
+const remainLetter = () => { // ids must be unique for each different tweet area
     let lengthTweet = tweetArea.value.length;
     let remainLetter = MAX_LETTER - lengthTweet;
     if (lengthTweet == 0) {
@@ -42,30 +43,97 @@ const remainLetter = () => {
     } else {
         document.getElementById("remain").innerHTML = `${lengthTweet}`;
         document.getElementById("remain").style.backgroundColor = "#1DA1F2";
-        document.getElementById("remain").style.width = `${(lengthTweet/1.4)}%`;
+        document.getElementById("remain").style.width = `${(lengthTweet / 1.4)}%`;
         document.getElementById("remain").style.color = "black";
     }
 }
 
-const postTweet = () => {
-    let temp = document.getElementById("tweetArea").value.split(" ");
-    let tweet = {
-        name: currentUser,
-        username: `@${currentUsername}`,
-        content: temp,
-        like: false,
-        id: num
+const remainLetterModal = () => { // ids must be unique for each different tweet area
+    let lengthTweet = tweetAreaModal.value.length;
+    let remainLetterModal = MAX_LETTER - lengthTweet;
+    if (lengthTweet == 0) {
+        document.getElementById("remainModal").innerHTML = null;
+        document.getElementById("remainModal").style.backgroundColor = "white";
+        document.getElementById("remainModal").style.width = "100%";
+        return 0;
     }
-    retweetList[num] = [];
-    console.log("Retweet", retweetList);
-    tweetList.push(tweet);
-    document.getElementById("tweetArea").value = null;
-    document.getElementById("remain").innerHTML = null;
-    document.getElementById("remain").style.backgroundColor = "white";
-    document.getElementById("remain").style.width = "100%";
-    console.log(tweetList);
-    num ++;
-    render(tweetList);
+    if (remainLetterModal < 0) {
+        document.getElementById("remainModal").innerHTML = `${remainLetterModal}`;
+        document.getElementById("remainModal").style.backgroundColor = "red";
+        document.getElementById("remainModal").style.width = "100%";
+        document.getElementById("remainModal").style.color = "black"
+    } else {
+        document.getElementById("remainModal").innerHTML = `${lengthTweet}`;
+        document.getElementById("remainModal").style.backgroundColor = "#1DA1F2";
+        document.getElementById("remainModal").style.width = `${(lengthTweet / 1.4)}%`;
+        document.getElementById("remainModal").style.color = "black";
+    }
+}
+
+const postTweet = () => {
+    if (tweetArea.value.length == 0) { // error checking
+        document.getElementById("mainTweetAlert").innerHTML = 'You must fweet something!';
+        document.getElementById("mainTweetAlert").className = 'alert alert-danger mt-2';
+    }
+    else if (tweetArea.value.length > MAX_LETTER) {
+        document.getElementById("mainTweetAlert").innerHTML = 'Your fweet is too long!';
+        document.getElementById("mainTweetAlert").className = 'alert alert-danger mt-2';
+    }
+    else {
+        document.getElementById("mainTweetAlert").innerHTML = '';
+        document.getElementById("mainTweetAlert").className = '';
+        let temp = document.getElementById("tweetArea").value.split(" ");
+        let tweet = {
+            name: currentUser,
+            username: `@${currentUsername}`,
+            content: temp,
+            like: false,
+            id: num
+        }
+        retweetList[num] = [];
+        console.log("Retweet", retweetList);
+        tweetList.push(tweet);
+        document.getElementById("tweetArea").value = null;
+        document.getElementById("remain").innerHTML = null;
+        document.getElementById("remain").style.backgroundColor = "white";
+        document.getElementById("remain").style.width = "100%";
+        console.log(tweetList);
+        num++;
+        render(tweetList);
+    }
+}
+
+const postTweetModal = () => {
+    if (tweetAreaModal.value.length == 0) { // error checking
+        document.getElementById("modalTweetAlert").innerHTML = 'You must fweet something!';
+        document.getElementById("modalTweetAlert").className = 'alert alert-danger mt-2';
+    }
+    else if (tweetAreaModal.value.length > MAX_LETTER) {
+        document.getElementById("modalTweetAlert").innerHTML = 'Your fweet is too long!';
+        document.getElementById("modalTweetAlert").className = 'alert alert-danger mt-2';
+    }
+    else {
+        document.getElementById("modalTweetAlert").innerHTML = '';
+        document.getElementById("modalTweetAlert").className = '';
+        let temp = document.getElementById("tweetAreaModal").value.split(" ");
+        let tweet = {
+            name: currentUser,
+            username: `@${currentUsername}`,
+            content: temp,
+            like: false,
+            id: num
+        }
+        retweetList[num] = [];
+        console.log("Retweet", retweetList);
+        tweetList.push(tweet);
+        document.getElementById("tweetAreaModal").value = null;
+        document.getElementById("remainModal").innerHTML = null;
+        document.getElementById("remainModal").style.backgroundColor = "white";
+        document.getElementById("remainModal").style.width = "100%";
+        console.log(tweetList);
+        num++;
+        render(tweetList);
+    }
 }
 
 const retweet = (idUser) => {
@@ -124,26 +192,26 @@ const tagFilter = (idTag) => {
 
 let formatTweet = (item, addAuthor, originalTweet) => {
     let icon = `<i class="far fa-heart fa-lg"></i>`
-        if (item.like) {
-            icon = `<i class="fas fa-heart fa-lg"></i>`
-        }
-        let orgTweet = originalTweet.map((i) => {
-            if (i[0]=="#") {
-                return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
-            } else return(i);
-        }).join(" ");
-        let contentTweet = item.content.map((i) => {
-            if (i[0]=="#") {
-                return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
-            } else return(i);
-        }).join(" ");
-        let retweetFrom = "";
-        let retweetButton = `<span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>`;
-        if (addAuthor != "") {
-            retweetButton = "";
-            retweetFrom = `Retweet from ${addAuthor}`;
-        };
-        let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
+    if (item.like) {
+        icon = `<i class="fas fa-heart fa-lg"></i>`
+    }
+    let orgTweet = originalTweet.map((i) => {
+        if (i[0] == "#") {
+            return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
+        } else return (i);
+    }).join(" ");
+    let contentTweet = item.content.map((i) => {
+        if (i[0] == "#") {
+            return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
+        } else return (i);
+    }).join(" ");
+    let retweetFrom = "";
+    let retweetButton = `<span class="retweet" id="${item.id}" onclick="retweet(id)"><i class="fas fa-retweet fa-lg"></i></span>`;
+    if (addAuthor != "") {
+        retweetButton = "";
+        retweetFrom = `Retweet from ${addAuthor}`;
+    };
+    let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
         <div class="col-auto">
             <img class="rounded-circle" src="img/user-default.png" style="width: 50px;">
         </div>
@@ -174,10 +242,11 @@ const render = (list) => {
             return formatTweet(retweet, item.username, item.content);
         }).join("");
         let mainTweet = formatTweet(item, "", []);
-        return(mainTweet + retweetContent);
+        return (mainTweet + retweetContent);
     }).join("");
     document.getElementById("contentTweet").innerHTML = allTweet;
     saveStorage();
 }
 
 tweetArea.addEventListener("input", remainLetter);
+tweetAreaModal.addEventListener("input", remainLetterModal);

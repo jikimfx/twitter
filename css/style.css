@@ -36,7 +36,6 @@ body {
     font-size: 14px;
 }
 
-
 .btn-round-lg {
     border-radius: 22.5px;
 }
@@ -44,8 +43,6 @@ body {
 .btn-round {
     border-radius: 17px;
 }
-
-
 
 .btn-round-sm {
     border-radius: 15px;
@@ -57,7 +54,7 @@ body {
     padding-right: 10px;
 }
 
-.tweet-modal-icons {
+.postTweet-icons {
     font-size: 22px;
     color: #1da1f2;
 }
@@ -158,11 +155,18 @@ body {
     border-width: 0px 1px 2px 1px;
 }
 
-.btn-tweet {
+/* .btn-tweet {
     display: inline-block;
     margin-right: 15px;
     width: 80px;
     padding: 0 auto;
+} */
+
+.postTweet {
+    border-right: 1px;
+    border-left: 1px;
+    border-bottom: 1px;
+    border-color: #000;
 }
 
 .tweet {
@@ -171,9 +175,9 @@ body {
     align-items: center;
 }
 
-#loadingBar {
+.loadingBar {
     width: 100px;
-    margin-right: 15px;
+    /* margin-right: 15px; */
     background-color: white;
     border: 1px solid black;
 }
@@ -187,10 +191,20 @@ body {
     background-color: #1DA1F2;
 }
 
+#remainModal {
+    height: 30px;
+    width: 0%;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+    background-color: #1DA1F2;
+}
+
+
 #tweetArea {
-    display: block; 
-    box-sizing: border-box; 
-    width: calc(100% - 15px); 
+    display: block;
+    box-sizing: border-box;
+    /* width: calc(100% - 15px);  */
     min-height: 100px;
 }
 
@@ -205,8 +219,8 @@ body {
 }
 
 #tweetContent {
-    display: block; 
-    box-sizing: border-box; 
-    width: calc(100% - 15px); 
+    display: block;
+    box-sizing: border-box;
+    width: calc(100% - 15px);
     min-height: 100px;
 }
