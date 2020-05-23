@@ -2,6 +2,8 @@
 body {
     background-color: #FFF;
     font-family: Raleway, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
 }
 
 .modal-header .close {
