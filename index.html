@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coderschool Twitter</title>
+    <title>Fwitter!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,15 +22,17 @@
                     <img class="sidebar-logo" src="img/fwitter-logo.png" />
                 </div>
                 <ul class="sidebar-navigation mt-5">
-                    <li><a href="#"><i class="fa fa-home"></i><span class="navlink ml-5" onclick="render(tweetList)">Home</span></a></li>
-                    <li><a href="#"><i class="fa fa-slack"></i><span class="navlink ml-5">Explore</span></a></li>
-                    <li><a href="#"><i class="fa fa-bell-o"></i><span class="navlink ml-5">Notifications</span></a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="navlink ml-5">Messages</span></a></li>
-                    <li><a href="#"><i class="fa fa-bookmark-o"></i><span class="navlink ml-5"> Bookmarks</span></a>
+                    <li><a href="#"><i class="fa fa-home"></i><span class="navlink ml-2"
+                                onclick="render(tweetList)">Home</span></a></li>
+                    <li><a href="#"><i class="fa fa-slack"></i><span class="navlink ml-2">Explore</span></a></li>
+                    <li><a href="#"><i class="fa fa-bell-o"></i><span class="navlink ml-2">Notifications</span></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="navlink ml-2">Messages <span
+                                    class="badge badge-pill badge-danger">2</span></span></a></li>
+                    <li><a href="#"><i class="fa fa-bookmark-o"></i><span class="navlink ml-2"> Bookmarks</span></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-list-alt"></i><span class="navlink ml-5">Lists</span></a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i><span class="navlink ml-5">Profile</span></a></li>
-                    <li><a href="#"><i class="fa fa-ellipsis-h"></i><span class="navlink ml-5">More</span></a></li>
+                    <li><a href="#"><i class="fa fa-list-alt"></i><span class="navlink ml-2">Lists</span></a></li>
+                    <li><a href="#"><i class="fa fa-user-o"></i><span class="navlink ml-2">Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-ellipsis-h"></i><span class="navlink ml-2">More</span></a></li>
                 </ul>
                 <div class="sidebar-tweet mt-5">
                     <button type="button" class="btn btn-tweet btn-round-lg btn-lg btn-block" data-toggle="modal"
@@ -91,13 +93,49 @@
                                 <div id="remain"></div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button id="mainTweetButton" class="btn btn-tweet-sm btn-round-sm" onclick="postTweet()">Fweet</button>
+                                <button id="mainTweetButton" class="btn btn-tweet-sm btn-round-sm"
+                                    onclick="postTweet()">Fweet</button>
                             </div>
                         </div>
                     </div>
                     <div id="contentTweet" class="mt-5"></div>
                 </div>
             </main>
+            <right class="col-4">
+                <div id="rightSideBar">
+                    <div id="input_container">
+                        <img src="img/search-icon.png" id="input_img">
+                        <input type="text" id="input" placeholder="Search Twitter">
+                    </div>
+                    <!--Accordion wrapper-->
+                    <div class="accordion md-accordion accordion-1 accordionClass mt-4" id="trendingAccordion"
+                        role="tablist">
+                        <div class="card-header">Trending Stories</div>
+                        <div class="card" id="card1"></div>
+                        <div class="card" id="card2"></div>
+                        <div class="card" id="card3"></div>
+                    </div>
+                    <!--Accordion wrapper-->
+                    <div class="card mt-4">
+                        <div class="card-header ">
+                            Who to Follow
+                        </div>
+                        <div id="list-example" class="list-group">
+                            <span class="whoToFollowList list-group-item list-group-item-action d-flex justify-content-between"
+                                href="#list-item-1">
+                                <img class="rounded-circle whoToFollowImg align-self-center" src="img/profile1.jpg" />
+                                <span class="whoToFollowUsername align-self-center">@RandomPerson1</span>
+                                <button id="rightFollowButton align-self-center" class="btn btn-outline-primary btn-round-sm align-middle">Follow</button>
+                            </span>
+                            <span class="whoToFollowList list-group-item list-group-item-action d-flex justify-content-between"
+                                href="#list-item-2">
+                                <img class="rounded-circle whoToFollowImg align-self-center" src="img/profile2.jpg" />
+                                <span class="whoToFollowUsername align-self-center">@RandomPerson2</span>
+                                <button id="rightFollowButton" class="btn btn-outline-primary btn-round-sm align-self-center">Follow</button>
+                            </span>
+                        </div>
+                    </div>
+            </right>
 
             <!-- <div class="row border-modified" style="padding: 15px; height: 60px;">
                         <h4 style="font-weight: 800;">Home</h4>
@@ -131,93 +169,10 @@
                         </div>
                     </div> -->
 
-            <right class="col-4">
-                <div id="input_container">
-                    <img src="img/search-icon.png" id="input_img">
-                    <input type="text" id="input" placeholder="Search Twitter">
 
-                </div>
-                <div class="Minh-rightsection">
-
-                    <div id="group-container">
-                        <div class="card mt-5" style="width: 18rem;">
-                            <div class="card-header">
-                                What's happening
-                            </div>
-                            <div id="list-example" class="list-group">
-                                <div id="newsArea">
-                                    <div id="news">
-                                        <div id="contentsArea">
-                                            <div id="title"></div>
-                                            
-                                            <div id="source"></div>
-                                           
-                                            <div class="row-mb5" style="font-size: 12px;"></div>
-                                            
-                                           
-                                            
-                                         </div>
-                                    </div>
-
-                                   
-                                    <div id="imgArea">
-            
-                                    </div>
-                                   
-                                    
-                                    
-                                  </div>
-                              </div>
-                           
-                        </div>
-                        <div class="showmoreBtn">
-
-                            <button class="btn btn-show-sm btn-round-sm">Show more</button>
-                        </div>
-                    </div>
-                    <div id="group-container">
-                        <div class="card mt-5" style="width: 18rem;">
-                            <div class="card-header ">
-                                Who to follow
-                            </div>
-                            <div id="list-example" class="list-group">
-                                <a class="list-group-item list-group-item-action" href="#list-item-1">User 1</a>
-                                <a class="list-group-item list-group-item-action" href="#list-item-2">user 2</a>
-                                <a class="list-group-item list-group-item-action" href="#list-item-3">User 3</a>
-                                <a class="list-group-item list-group-item-action" href="#list-item-4">User 4</a>
-                              </div>
-                        </div>
-                        <div class="showmoreBtn">
-                            <!-- <p>Show more</p> -->
-                            <button class="btn btn-show-sm btn-round-sm">Show more</button>
-                        </div>
-                    </div>
-                    <footer class="footer">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="footer-widget-content">
-                                    <ul id="horizontal-list" class="d-flex flex-row justify-content-between">
-                                        <li><a href="https://twitter.com/en/tos" class="inline">Terms</a></li>
-                                        <li> <a href="https://twitter.com/en/privacy" class="inline"> Privacy
-                                                Policy
-                                            </a></li>
-                                        <li> <a href="https://help.twitter.com/en/rules-and-policies/twitter-cookies"
-                                                class="inline"> Cookies </a></li>
-                                        <li> <a href="https://business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html"
-                                                class="inline"> Ads info </a></li>
-                                        <li><a href="tel:0121234" class="inline">More</a></li>
-                                    </ul>
-                                    <p><a class="inline">@2020 Twitter, Inc</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
-            </right>
         </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/eacaad73d5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -227,9 +182,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-     <!--moment js-->
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/tr.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/tr.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="js/eacaad73d5.js" crossorigin="anonymous"></script>
     <script src="js/right-siderbar.js"></script>
     <script src="js/scripts.js"></script>
 </body>

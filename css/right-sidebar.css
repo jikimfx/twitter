@@ -88,9 +88,9 @@ ul.list-group-flush li {
     word-wrap: none;
     /* margin-left: 50px; */
     font-size: 12px;
-    
 }
-.footer ul { 
+
+.footer ul {
     list-style-type: none;
     padding: 0;
 }
@@ -102,18 +102,18 @@ ul.list-group-flush li {
     list-style: none;
 } */
 
-
 .footer-widget-content>.li {
     display: inline;
     list-style-type: none;
 }
-.card-header{
-    font-size: 20px;
+
+.card-header {
+    font-size: 24px;
     font-weight: 700;
 }
 
 .btn-show-sm {
-    background-color:#E1E8ED;
+    background-color: #E1E8ED;
     color: #1DA1F2;
     font-family: Helvetica, sans-serif;
     font-size: 14px;
@@ -125,22 +125,38 @@ ul.list-group-flush li {
     font-family: Helvetica, sans-serif;
     font-size: 14px;
 }
-.btn-user-sm{
-    background-color:#E1E8ED;
+
+.btn-user-sm {
+    background-color: #E1E8ED;
     color: #1DA1F2;
     font-family: Helvetica, sans-serif;
     font-size: 14px;
-    
 }
-.btn-user-sm:hover{
+
+.btn-user-sm:hover {
     background-color: #00B6F1;
     color: #FFF;
     font-family: Helvetica, sans-serif;
     font-size: 14px;
 }
-.dropdown-menu show{
-list-style: none;
+
+.accordionClass a, a:hover {
+    text-decoration: none;
 }
-#news{
+
+.whoToFollowImg {
+    width: 50px;
+    height: 50px;
+}
+
+.whoToFollowList {
+    height: 70px;
+}
+
+.dropdown-menu show {
+    list-style: none;
+}
+
+#news {
     font-size: 15px;
 }
