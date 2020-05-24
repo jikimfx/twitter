@@ -8,10 +8,9 @@
 * Ji Kim
 * Minh Nguyen
 
-
-
 ## Features
 
+- Trending stories is dynamic news
 - User can login and set username
 - User can fweet
 - User cannot fweet if no fweet entry or longer than 140 characters
@@ -21,3 +20,4 @@
 - User can filter by #hashtag
 - User can delete a fweet
 - User can delete original fweet and all associated refweets will also be deleted
+- Responsive
