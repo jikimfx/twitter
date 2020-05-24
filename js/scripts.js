@@ -9,6 +9,8 @@ let currentPassword = "";
 let tweetList = [];
 let retweetList = {};
 
+
+
 const saveStorage = () => {
     localStorage.setItem("tweetList", JSON.stringify(tweetList));
     localStorage.setItem("retweetList", JSON.stringify(retweetList));
@@ -26,14 +28,27 @@ const loginUser = () => {
 const getStorage = () => {
     let storeTweet = localStorage.getItem("tweetList");
     let storeRetweet = localStorage.getItem("retweetList");
+    let temp, res;
     if (storeTweet !== null) {
-        tweetList = JSON.parse(storeTweet);
-        console.log(tweetList);
+        //tweetList = JSON.parse(storeTweet);
+        temp = JSON.parse(storeTweet);
+        res = tweetList;
+        tweetList = [...res, ...temp];
+        console.log("JSON tweetList", tweetList);
     }
     if (storeRetweet !== null) {
-        retweetList = JSON.parse(storeRetweet);
-        console.log(retweetList);
+        temp = JSON.parse(storeRetweet);
+        res = retweetList;
+        retweetList = Object.assign({}, temp, res);
+        //retweetList = JSON.parse(storeRetweet);
+        console.log("JSON retweetList",retweetList);
     }
+    num = tweetList.length + Object.keys(retweetList).length;
+    if (num>0) {
+        num += 1;
+    }
+    console.log(num);
+    render(tweetList);
 }
 
 const remainLetter = () => { // ids must be unique for each different tweet area
