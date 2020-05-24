@@ -241,7 +241,7 @@ let formatTweet = (item, addAuthor, originalTweet) => {
 }
 
 const render = (list) => {
-    let allTweet = list.map((item) => {
+    let allTweet = list.slice(0).reverse().map((item) => {
         let retweetContent = retweetList[item.id].map(retweet => {
             return formatTweet(retweet, item.username, item.content);
         }).join("");
