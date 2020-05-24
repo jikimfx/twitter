@@ -1,9 +1,8 @@
 ![Fwitter Logo](https://fake-twitter.netlify.app/img/fwitter-logo.png)
 
-**Fwitter is the bestest fake Twitter in the whole localhost.**
-**Presented by TOG™ (The Online Group).**
+**Fwitter is the bestest fake Twitter in the whole localhost. Presented by TOG™ (The Online Group).**
 
-# Contributors
+## Contributors
 
 * Anh Henry Nguyen
 * Ji Kim
