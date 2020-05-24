@@ -19,6 +19,8 @@ const loginUser = () => {
     currentUsername = document.getElementById("username").value;
     currentPassword = document.getElementById("password").value;
     document.getElementById("signInButton").innerHTML = `<i class="fa fa-user-o" aria-hidden="true"></i><span class="navlink ml-2">${currentUsername}</span></a></li>`;
+    let closeButton = document.getElementById("closeLogin");
+    closeButton.click();
 }
 
 const getStorage = () => {
