@@ -227,12 +227,12 @@ let formatTweet = (item, addAuthor, originalTweet) => {
         icon = `<i class="fas fa-heart fa-lg"></i>`
     }
     let orgTweet = originalTweet.map((i) => {
-        if (i[0] == "#") {
+        if (i[0] == "#" || i[0] == "@") {
             return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
         } else return (i);
     }).join(" ");
     let contentTweet = item.content.map((i) => {
-        if (i[0] == "#") {
+        if (i[0] == "#" || i[0] == "@") {
             return (`<a href="#" id="${i}" onclick="tagFilter(id)">${i}</a>`)
         } else return (i);
     }).join(" ");
