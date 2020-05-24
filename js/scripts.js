@@ -20,7 +20,8 @@ const loginUser = () => {
     currentUser = document.getElementById("username").value;
     currentUsername = document.getElementById("username").value;
     currentPassword = document.getElementById("password").value;
-    document.getElementById("signInButton").innerHTML = `<i class="fa fa-user-o" aria-hidden="true"></i><span class="navlink ml-2">${currentUsername}</span></a></li>`;
+    document.getElementById("signInButton").innerHTML = `<i class="fa fa-user-o" aria-hidden="true"></i><span class="navlink ml-2">${currentUsername}</span>`;
+    document.getElementById("messagesNav").innerHTML = `<i class="fa fa-envelope-o"></i><span class="navlink ml-2">Messages <span class="badge badge-pill badge-danger">2</span></span>`
     let closeButton = document.getElementById("closeLogin");
     closeButton.click();
 }
