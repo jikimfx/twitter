@@ -1,4 +1,4 @@
-![Fwitter Logo](https://fake-twitter.netlify.app/img/fwitter-logo.png)
+[![(Fwitter Logo](https://fake-twitter.netlify.app/img/fwitter-logo.png)](https://fake-twitter.netlify.app/)
 
 **Fwitter is the bestest fake Twitter in the whole localhost. Presented by TOG™ (The Online Group).**
 
