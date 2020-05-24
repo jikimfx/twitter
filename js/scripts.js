@@ -28,11 +28,11 @@ const loginUser = () => {
 const initTweet = () => {
     tweetList = [];
     retweetList = {};
-    let temp = ("I call everyone kid!").split(" ");
+    let temp = ("I call everyone a kid!").split(" ");
     let tweet = {
         name: "Ji Kim",
-        username: `@Jikim`,
-        password: "a",
+        username: `@jikim`,
+        password: "12345678",
         content: temp,
         like: false,
         id: num
@@ -45,7 +45,7 @@ const initTweet = () => {
     tweet = {
         name: "Anh Henry Nguyen",
         username: `@thefalsehenry`,
-        password: "b",
+        password: "hunter2",
         content: temp,
         like: false,
         id: num
@@ -57,8 +57,8 @@ const initTweet = () => {
     temp = ("Hi everyone, I am Minh!").split(" ");
     tweet = {
         name: "Minh Nguyen",
-        username: `@minhng`,
-        password: "c",
+        username: `@minhnguyen`,
+        password: "password",
         content: temp,
         like: false,
         id: num
