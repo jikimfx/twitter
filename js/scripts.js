@@ -5,12 +5,22 @@ let num = 0;
 let empty = true;
 let currentUser = "Anonymous";
 let currentUsername = "Home";
+let currentPassword = "";
 let tweetList = [];
 let retweetList = {};
 
 const saveStorage = () => {
     localStorage.setItem("tweetList", JSON.stringify(tweetList));
     localStorage.setItem("retweetList", JSON.stringify(retweetList));
+}
+
+const loginUser = () => {
+    currentUser = document.getElementById("username").value;
+    currentUsername = document.getElementById("username").value;
+    currentPassword = document.getElementById("password").value;
+    document.getElementById("signInButton").innerHTML = `<i class="fa fa-user-o" aria-hidden="true"></i><span class="navlink ml-2">${currentUsername}</span></a></li>`;
+    let closeButton = document.getElementById("closeLogin");
+    closeButton.click();
 }
 
 const getStorage = () => {
@@ -86,6 +96,7 @@ const postTweet = () => {
         let tweet = {
             name: currentUser,
             username: `@${currentUsername}`,
+            password: currentPassword,
             content: temp,
             like: false,
             id: num
@@ -119,6 +130,7 @@ const postTweetModal = () => {
         let tweet = {
             name: currentUser,
             username: `@${currentUsername}`,
+            password: currentPassword,
             content: temp,
             like: false,
             id: num
@@ -141,6 +153,7 @@ const retweet = (idUser) => {
     let tweet = {
         name: currentUser,
         username: `@${currentUsername}`,
+        password: currentPassword,
         content: userComment,
         like: false,
         id: num
