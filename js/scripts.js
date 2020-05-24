@@ -3,6 +3,7 @@ let tweetArea = document.getElementById("tweetArea"); // two places to tweet fro
 let tweetAreaModal = document.getElementById("tweetAreaModal"); // two places to tweet from, but ids have to be unique
 let num = 0;
 let empty = true;
+let initialStatus = true;
 let currentUser = "Anonymous";
 let currentUsername = "Home";
 let currentPassword = "";
@@ -24,7 +25,67 @@ const loginUser = () => {
     closeButton.click();
 }
 
+const initTweet = () => {
+    tweetList = [];
+    retweetList = {};
+    let temp = ("I call everyone kid!").split(" ");
+    let tweet = {
+        name: "Ji Kim",
+        username: `@Jikim`,
+        password: "a",
+        content: temp,
+        like: false,
+        id: num
+    }
+    retweetList[num] = [];
+    tweetList.push(tweet);
+    num++;
+
+    temp = ("Follow my Instagram at @thefalsehenry").split(" ");
+    tweet = {
+        name: "Anh Henry Nguyen",
+        username: `@thefalsehenry`,
+        password: "b",
+        content: temp,
+        like: false,
+        id: num
+    }
+    retweetList[num] = [];
+    tweetList.push(tweet);
+    num++;
+
+    temp = ("Hi everyone, I am Minh!").split(" ");
+    tweet = {
+        name: "Minh Nguyen",
+        username: `@minhng`,
+        password: "c",
+        content: temp,
+        like: false,
+        id: num
+    }
+    retweetList[num] = [];
+    tweetList.push(tweet);
+    num++;
+
+    let userComment = ("I retweeted my own tweet for some clout, so don't judge me.").split(" ");
+    tweet = {
+        name: "Anh Henry Nguyen",
+        username: `@thefalsehenry`,
+        password: "b",
+        content: userComment,
+        like: false,
+        id: num
+    }
+    num++;
+    retweetList["1"].push(tweet);
+}
+
 const getStorage = () => {
+    let initialCurrent = localStorage.getItem("initialStatus");
+    if (initialCurrent == null) {
+        initTweet();
+        localStorage.setItem("initialStatus", JSON.stringify(initialStatus));
+    }
     let storeTweet = localStorage.getItem("tweetList");
     let storeRetweet = localStorage.getItem("retweetList");
     let temp, res;
