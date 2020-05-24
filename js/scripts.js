@@ -9,8 +9,6 @@ let currentPassword = "";
 let tweetList = [];
 let retweetList = {};
 
-
-
 const saveStorage = () => {
     localStorage.setItem("tweetList", JSON.stringify(tweetList));
     localStorage.setItem("retweetList", JSON.stringify(retweetList));
