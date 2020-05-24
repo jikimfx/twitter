@@ -1,4 +1,4 @@
-const MAX_LETTER = 10;
+const MAX_LETTER = 140;
 let tweetArea = document.getElementById("tweetArea"); // two places to tweet from, but ids have to be unique
 let tweetAreaModal = document.getElementById("tweetAreaModal"); // two places to tweet from, but ids have to be unique
 let num = 0;
@@ -191,6 +191,10 @@ const tagFilter = (idTag) => {
 }
 
 let formatTweet = (item, addAuthor, originalTweet) => {
+    let borderTop = "";
+    if (item.id == 0) {
+        borderTop = "border-top: 1px solid #E1E8ED;";
+    }
     let icon = `<i class="far fa-heart fa-lg"></i>`
     if (item.like) {
         icon = `<i class="fas fa-heart fa-lg"></i>`
@@ -211,7 +215,7 @@ let formatTweet = (item, addAuthor, originalTweet) => {
         retweetButton = "";
         retweetFrom = `Retweet from ${addAuthor}`;
     };
-    let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED;"> 
+    let context = `<div class="row border-modified" style="padding: 15px 0px; border-bottom: 1px solid #E1E8ED; ${borderTop}"> 
         <div class="col-auto">
             <img class="rounded-circle" src="img/user-default.png" style="width: 50px;">
         </div>
