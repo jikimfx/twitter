@@ -9,7 +9,31 @@ let currentPassword = "";
 let tweetList = [];
 let retweetList = {};
 
-
+// let tweetList = [
+//     {
+//         name: "Ji Kim",
+//         username: "@jikim",
+//         password: "123456789",
+//         content: ["I", "call", "everyone", "kid"],
+//         like: false,
+//         id: 0
+//     },
+//     {
+//         name: "Anh Nguyen",
+//         username: "@thefalsehenry",
+//         password: "hunter2",
+//         content: ["Follow", "me", "on", "Instagram!"],
+//         like: false,
+//         id: 1
+//     },
+//     {
+//         name: "Minh Nguyen",
+//         username: "@minhnguyen",
+//         password: "vietnam",
+//         content: ["I", "am", "Minh"],
+//         like: false,
+//         id: 2
+//     }];
 
 const saveStorage = () => {
     localStorage.setItem("tweetList", JSON.stringify(tweetList));
@@ -42,10 +66,10 @@ const getStorage = () => {
         res = retweetList;
         retweetList = Object.assign({}, temp, res);
         //retweetList = JSON.parse(storeRetweet);
-        console.log("JSON retweetList",retweetList);
+        console.log("JSON retweetList", retweetList);
     }
     num = tweetList.length + Object.keys(retweetList).length;
-    if (num>0) {
+    if (num > 0) {
         num += 1;
     }
     console.log(num);

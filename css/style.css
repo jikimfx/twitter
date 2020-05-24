@@ -143,6 +143,12 @@ body {
     }
 }
 
+@media(max-width:769px) {
+    .navlink {
+        display: initial;
+    }
+}
+
 .container-content {
     font-family: 'Raleway', sans-serif;
     width: 40%;
