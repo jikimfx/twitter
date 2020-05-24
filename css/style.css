@@ -177,13 +177,14 @@ body {
 
 .loadingBar {
     width: 100px;
+    /*I add this*/height: 32px;
     /* margin-right: 15px; */
     background-color: white;
     border: 1px solid black;
 }
 
 #remain {
-    height: 30px;
+    /*I add this*/height: 100%;
     width: 0%;
     text-align: center;
     line-height: 30px;
