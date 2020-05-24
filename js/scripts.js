@@ -9,32 +9,6 @@ let currentPassword = "";
 let tweetList = [];
 let retweetList = {};
 
-// let tweetList = [
-//     {
-//         name: "Ji Kim",
-//         username: "@jikim",
-//         password: "123456789",
-//         content: ["I", "call", "everyone", "kid"],
-//         like: false,
-//         id: 0
-//     },
-//     {
-//         name: "Anh Nguyen",
-//         username: "@thefalsehenry",
-//         password: "hunter2",
-//         content: ["Follow", "me", "on", "Instagram!"],
-//         like: false,
-//         id: 1
-//     },
-//     {
-//         name: "Minh Nguyen",
-//         username: "@minhnguyen",
-//         password: "vietnam",
-//         content: ["I", "am", "Minh"],
-//         like: false,
-//         id: 2
-//     }];
-
 const saveStorage = () => {
     localStorage.setItem("tweetList", JSON.stringify(tweetList));
     localStorage.setItem("retweetList", JSON.stringify(retweetList));
