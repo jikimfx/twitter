@@ -42,10 +42,7 @@ const getStorage = () => {
         //retweetList = JSON.parse(storeRetweet);
         console.log("JSON retweetList", retweetList);
     }
-    num = tweetList.length + Object.keys(retweetList).length;
-    if (num > 0) {
-        num += 1;
-    }
+    num = tweetList.length;
     console.log(num);
     render(tweetList);
 }
@@ -219,7 +216,7 @@ const tagFilter = (idTag) => {
 
 let formatTweet = (item, addAuthor, originalTweet) => {
     let borderTop = "";
-    if (item.id == 0) {
+    if (item.id == (tweetList.length-1)) {
         borderTop = "border-top: 1px solid #E1E8ED;";
     }
     let icon = `<i class="far fa-heart fa-lg"></i>`
