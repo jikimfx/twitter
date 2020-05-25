@@ -12,7 +12,7 @@
 
 - Trending stories is dynamic news
 - User can login and set username
-- User can fweet
+- User can fweet both from the sidebar and also the main container
 - User cannot fweet if no fweet entry or longer than 140 characters
 - User is shown a character count
 - User can refweet
